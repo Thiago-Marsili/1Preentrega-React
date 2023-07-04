@@ -1,45 +1,25 @@
 import OIG from "../img/OIG.jpg"
-import CartWidget from "./CartWidget";
+import CartWidget from "./CartWidget"
+import Catalogo from "./Catalogo"
+import {useState} from 'react'
+import { Link } from "react-router-dom";
+
 
 function NavBar() {
+
     return (
         <div>
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="#">
-                        <img
-                            src={OIG}
-                            width="60"
-                            height="88"
-                        />
-                        <span className="navbar-item-text">BuenasPelis</span>
-                    </a>
+                    <Link to="/" className="navbar-item" ><img alt="OIG" src={OIG} width="60" height="88"/>
+                        <Link to="/">
+                            <span className="navbar-item-text">BuenasPelis</span>
+                        </Link>
+                    </Link>
                 </div>
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-end">
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
-                                Categorias
-                            </a>
-
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item">
-                                    Acción
-                                </a>
-                                <a class="navbar-item">
-                                    Terror
-                                </a>
-                                <a class="navbar-item">
-                                    Comedia
-                                </a>
-                                <a class="navbar-item">
-                                    Aventura
-                                </a>
-                                <a class="navbar-item">
-                                    Ficción
-                                </a>
-                            </div>
-                        </div>
+                <div className="navbar-menu">
+                    <div className="navbar-end">
+                        <Catalogo/>
                         <CartWidget/>
                     </div>
                 </div>
@@ -47,4 +27,5 @@ function NavBar() {
         </div>
     );
 }
+
 export default NavBar;
